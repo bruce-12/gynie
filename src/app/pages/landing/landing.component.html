@@ -1,0 +1,52 @@
+<h4>list of students</h4>
+<div *ngFor="let student of profile">
+    <ul>
+      <a
+        [routerLink]="['/', 'profile', student.userID]"
+        routerLinkActive="router-link-active"
+      >
+        <li>{{ student.name }}</li></a
+      >
+    </ul>
+  </div>
+ 
+
+
+
+<h4>Add new items</h4>
+<form #form="ngForm" (ngSubmit)="updates(form)">
+  <input name = "name" #name="ngModel"ngModel required>
+  <input name="bio" #bio="ngModel"ngModel required>
+  <button type="submit">Update details</button>
+
+</form>
+
+<button type="deleteuser">delete</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+<p>testing inputes</p>
+
+<p>{{form.value.name}}</p>
+<p *ngIf="form.valid ; else notvalid">
+  we have a value {{form.value.name}}
+</p>
+<ng-template #notvalid>
+
+  please input something
+</ng-template>
+
